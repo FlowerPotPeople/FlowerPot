@@ -2,23 +2,25 @@
 
 A website to take the growing pains out of learning how to garden.
 
-Providing weather information specific to your area, watering recommendations and good plant options for the current time of year.
+FlowerPot provides a user friendly entry into the realm of gardening or a great place to expand your knowledge.
+With plant options for the current time of year, watering recommendations and weather information specific to your area to help you grow your garden.
+Find seed banks and local sellers to buy your next plant, watering guides dependant on the rainfall in your area, the weather forcast to know when the hot days are coming and ways to give your plants extra TLC. Learn about the best locations to plant different species, companion planting and the benefits or look up the origins of different plants.
 
 [FlowerPot](https://flowerpotpeople.github.io/FlowerPot/)
 
 
 ## WireFrame
 Our wireframe for FlowerPot features a navbar with a weather widget that shows the rainfall in millimeters for your area for the last 24hrs and the identifies the current weather with a simple icon. A hero tile that displays plants that are best planted at the current time of year and some basic information about them.
-4 tiles that will link to other pages, displaying further information on each topic.
+4 tiles that will link to other pages, displaying further information on each topic, a larger tile at the bottom of the page for Your Garden.
 
-![Wireframe of the landing page for FlowerPot](./assets/images/FlowerPotDesktop.png)
+![Wireframe of the landing page for FlowerPot](./assets/images/FlowerPotWireFrame.png)
 
 ## Acknowledgements 
 
 API's implemented:
 * https://openweathermap.org/api
-* https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
-Icons:
+* https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API  
+Icons: 
 * www.flaticon.com
 
 
@@ -28,7 +30,7 @@ Icons:
 - [x] Be deployed to GitHub Pages
 - [] Be interactive (i.e., accept and respond to user input)
 - [x] Use at least two server-side APIs
-- [] Do not use alerts, confirms or prompts (use modals instead)
+- [] Do not use JS alerts, confirms or prompts (use modals instead)
 - [] Use client-side storage to store persistent data
 - [] Be responsive
 - [] Have a polished UI
@@ -50,4 +52,12 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 - [] Directions for Future Development
 
 - [] Links to the deployed application and the GitHub repository
+
+### Notes for Submission on BCS  
+
+Each member is required to submit the following:
+
+* The URL of the deployed application.
+
+* The URL of the GitHub repository.
 
