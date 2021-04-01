@@ -1,0 +1,68 @@
+body{
+    background-image: url(banksia.jpeg);
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    position: absolute;
+    width: 1439px;
+    height: 172px;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(80, 106, 67, 0.85);
+}
+
+header ul li {
+    display: inline-block;
+    position: relative;
+    width: 123px;
+    height: 35px;
+    left: 631px;
+    top: 62px;
+}
+
+.Garden {
+    position: absolute;
+    width: 1099px;
+    height: 223.07px;
+    left: 163px;
+    top: 202px;
+    background: rgba(145, 189, 230, 0.75);
+}
+
+.Seed {
+    position: absolute;
+    width: 520.17px;
+    height: 240.55px;
+    left: 163px;
+    top: 478.34px;
+    background: rgba(197, 170, 129, 0.8);
+}
+
+.Origins {
+    position: absolute;
+    width: 520.17px;
+    height: 240.55px;
+    left: 741.83px;
+    top: 478.34px;
+    background: rgba(197, 170, 129, 0.8);
+}
+
+.When {
+    position: absolute;
+    width: 520.17px;
+    height: 240.55px;
+    left: 163px;
+    top: 763.45px;
+    background: rgba(197, 170, 129, 0.8);
+}
+
+.Companion {
+    position: absolute;
+    width: 520.17px;
+    height: 240.55px;
+    left: 741.83px;
+    top: 763.45px;
+    background: rgba(197, 170, 129, 0.8);
+}
