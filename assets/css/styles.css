@@ -2,6 +2,7 @@ body{
     background-image: url(banksia.jpeg);
     width: 100%;
     height: 100%;
+    margin:15px;
 }
 
 header {
@@ -11,6 +12,7 @@ header {
     left: 0px;
     top: 0px;
     background-color: rgba(80, 106, 67, 0.85);
+    
 }
 
 header ul li {
@@ -22,13 +24,14 @@ header ul li {
     top: 62px;
 }
 
-.Garden {
+.Now {
     position: absolute;
     width: 1099px;
     height: 223.07px;
     left: 163px;
     top: 202px;
     background: rgba(145, 189, 230, 0.75);
+    padding: 20px;
 }
 
 .Seed {
@@ -38,6 +41,7 @@ header ul li {
     left: 163px;
     top: 478.34px;
     background: rgba(197, 170, 129, 0.8);
+    padding: 20px;
 }
 
 .Origins {
@@ -47,6 +51,7 @@ header ul li {
     left: 741.83px;
     top: 478.34px;
     background: rgba(197, 170, 129, 0.8);
+    padding: 20px;
 }
 
 .When {
@@ -56,6 +61,7 @@ header ul li {
     left: 163px;
     top: 763.45px;
     background: rgba(197, 170, 129, 0.8);
+    padding: 20px;
 }
 
 .Companion {
@@ -65,4 +71,15 @@ header ul li {
     left: 741.83px;
     top: 763.45px;
     background: rgba(197, 170, 129, 0.8);
+    padding: 20px;
+}
+
+.Garden {
+    position: absolute;
+    width: 1099px;
+    height: 223.07px;
+    left: 163px;
+    top: 1048.56px;
+    background: rgba(145, 189, 230, 0.75);
+    padding: 20px;
 }
