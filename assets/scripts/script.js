@@ -59,37 +59,46 @@ function useWeatherObj(weatherObj) {
     console.log(weatherObj);
 }
 function updateWeatherIcon(data) {
+    // debugger;
     const currentUserDt = data.current.dt;
     const todaysUserSunset = data.current.sunset;
     const isDay = currentUserDt < todaysUserSunset;
+    console.log(isDay);
     const currentWeatherMainDescription = data.current.weather[0].main;
     const currentWeatherDescription = data.current.weather[0].description;
-    const currentWeatherCode = data.currnet.weather[0].id;
+    const currentWeatherCode = data.current.weather[0].id;
+    console.log(currentWeatherCode);
     const baseSrc = "assets/images/widget-icons/";
 
-    if (isDay) {
-        if (currentWeatherCode === 800) {
-            weatherIcon.src = `${baseSrc}sun.svg`;
-            weatherIcon.alt = `${currentWeatherDescription}, sun icon.`;
-        }
-        if (currentWeatherMainDescription === "Rain") {
-            weatherIcon.src = `${baseSrc}rain.svg`;
-            weatherIcon.alt = `${currentWeatherDescription}, cloud with rain`;
-        }
-        if (currentWeatherMainDescription === "Thunderstorm") {
-            weatherIcon.src = `${baseSrc}storm.svg`;
-            weatherIcon.alt = `${currentWeatherDescription},cloud with lightning bolt and rain`;
-        }
-        if (currentWeatherCode > 802 || currentWeatherCode < 805) {
-            weatherIcon.src = `${baseSrc}overcast.svg`;
-            weatherIcon.alt = `${currentWeatherDescription}, cloud icon.`;
-        }
-        if (currentWeatherCode < 803 || currentWeatherCode > 800) {
-            weatherIcon.src = `${baseSrc}sun-and-cloud.svg`;
-            weatherIcon.alt = `${currentWeatherDescription}, sun and cloud icon together`;
-        }
-    }
-    if (!isDay) {
+    if (currentWeatherCode === 800 && isDay) {
+        weatherIcon.src = `${baseSrc}sun.svg`;
+        weatherIcon.alt = `${currentWeatherDescription}, sun icon.`;
+    } else if (
+        (currentWeatherCode === 801 || currentWeatherCode === 802) &&
+        isDay
+    ) {
+        weatherIcon.src = `${baseSrc}sun-and-cloud.svg`;
+        weatherIcon.alt = `${currentWeatherDescription}, sun and cloud icon together`;
+    } else if (currentWeatherMainDescription === "Rain") {
+        weatherIcon.src = `${baseSrc}rain.svg`;
+        weatherIcon.alt = `${currentWeatherDescription}, cloud with rain`;
+    } else if (currentWeatherMainDescription === "Thunderstorm") {
+        weatherIcon.src = `${baseSrc}storm.svg`;
+        weatherIcon.alt = `${currentWeatherDescription},cloud with lightning bolt and rain`;
+    } else if (currentWeatherCode === 803 || currentWeatherCode === 804) {
+        weatherIcon.src = `${baseSrc}overcast.svg`;
+        weatherIcon.alt = `${currentWeatherDescription}, cloud icon.`;
+    } else if (currentWeatherCode === 800 && !isDay) {
+        console.log("here");
+        weatherIcon.src = `${baseSrc}moon-clear.svg`;
+        weatherIcon.alt = `${currentWeatherDescription}, moon icon.`;
+    } else if (
+        (currentWeatherCode === 801 || currentWeatherCode === 802) &&
+        !isDay
+    ) {
+        console.log("here too");
+        weatherIcon.src = `${baseSrc}moon-and-cloud.svg`;
+        weatherIcon.alt = `${currentWeatherDescription}, moon and cloud icon together`;
     }
 }
 
