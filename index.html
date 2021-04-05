@@ -4,45 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The FlowerPot</title>
-</head>
+    <script src="assets/scripts/script.js" defer></script>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet"></head>
 <body>
     <header>
         <!-- logo-->
-        <div class="navbar">
-            <div class="container">
-                <a href="#"> The Flower<span> Pot</span></a>
-                <nav>
-                    <!--menu list -->
-                    <ul class="menu">
-                        <li> <a href="#">About Us</a> </li>
-                        <li> <a href="#"></a> Contact</li>
-                        <li> <a href="#"></a> Gallery</li>
-                        <li> <a href="#"> <img src="assets/image/cloud 1.svg"> </a> </li>
-                        <li> <a href="#">8mm</a> </li>
-                    </ul>
-                </nav>
+        <a href="#" class = 'brand'> The Flower<span class = 'logo-pot'>Pot</span></a>
+        <nav class="nav-bar">    
+            <ul class="nav-list">
+                <li class = 'nav-links'> 
+                    <a class ='nav-link'>About Us</a>
+                </li>
+                <li class = 'nav-links'> 
+                    <a class ='nav-link'>Contact</a>
+                </li>
+                <li class = 'nav-links'> 
+                    <a class ='nav-link'>Gallery</a>
+                </li>
+            </ul>
+        
+            <div class = 'widget-container'>
+            <div class = "weather-icon-container">
+                <img class = 'weather-icon' src="assets/images/widget-icons/load-bar.svg" alt = 'load bar icon'>
             </div>
-        </div>   
+            <div class = "rainfall-icon-container">
+                <p class = "rainfall-figure weather-icon"></p>
+            </div>
+        </nav>
     </header>
     <section class="hero">
         <div class="container">
-            <div id="your-garden"  class="your-garden">
+            <div id="your-Garden"  class="your-garden content-card">
                 <h2> Your Garden</h2>
                 <p>its a good time to plant: list of stuff</p>
             </div>
-            <div id="seeds-bank" class="seeds-bank">
+            <div id="seeds-bank" class="seeds-bank content-card">
                 <h2>Seeds bank</h2>
             </div>
-            <div id="where-to-plant"  class="where-to-plant">
+            <div id="where-to-plant"  class="where-to-plant content-card">
                 <h2>Where to plant</h2>
             </div>
-            <div id="plant-origin" class="plant-origin">
+            <div id="plant-origin" class="plant-origin content-card">
                 <h2>Plant Origin</h2>
             </div>
-            <div id="companion-planting" class="companion-planting">
+            <div id="companion-planting" class="companion-planting content-card">
                 <h2>Companion Planting</h2>
             </div>
         </div>
     </section>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    
 </body>
 </html>
