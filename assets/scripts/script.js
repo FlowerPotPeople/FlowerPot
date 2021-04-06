@@ -1,6 +1,8 @@
 // defines selected elements in varibales for reuse throughout this script
 let weatherIcon = document.querySelector(".weather-icon");
 let rainfallFigure = document.querySelector(".rainfall-figure");
+let weatherIconContainer = document.querySelector(".weather-icon-container");
+let rainfallContainer = document.querySelector(".rainfall-icon-container");
 
 let rainfallFigureContent = rainfallFigure.textContent;
 let weatherIconSource = weatherIcon.src;
@@ -49,25 +51,30 @@ function getWeather(weatherApiUrl, rain) {
             rain ? updateRainfall(data) : updateWeatherIcon(data);
         })
         .catch(function (error) {
+            console.log(error);
+            rain
+                ? widgetErrorHander(rainfallContainer)
+                : widgetErrorHander(weatherIconContainer);
+
             // handle error so that user knows something went wrong
             // DON'T JUST CONSOLE LOG
         });
 }
-
-function useWeatherObj(weatherObj) {
-    // this funciton will conaint the DOM manipulation based on the response.json()
-    console.log(weatherObj);
+function widgetErrorHander(container) {
+    container.firstElementChild.remove();
+    let errorElement = document.createElement("P");
+    errorElement.textContent = "Can't\nReach\n API.";
+    errorElement.style.display = "block";
+    container.appendChild(errorElement);
 }
 function updateWeatherIcon(data) {
     // debugger;
     const currentUserDt = data.current.dt;
     const todaysUserSunset = data.current.sunset;
     const isDay = currentUserDt < todaysUserSunset;
-    console.log(isDay);
     const currentWeatherMainDescription = data.current.weather[0].main;
     const currentWeatherDescription = data.current.weather[0].description;
     const currentWeatherCode = data.current.weather[0].id;
-    console.log(currentWeatherCode);
     const baseSrc = "assets/images/widget-icons/";
 
     if (currentWeatherCode === 800 && isDay) {
@@ -103,7 +110,6 @@ function updateWeatherIcon(data) {
 }
 
 function updateRainfall(data) {
-    console.log(data);
     const hourlyDataArray = data.hourly;
     let dailyRainTotal = 0;
     for (var i = 0; i < hourlyDataArray.length; i++) {
