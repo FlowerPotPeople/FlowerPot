@@ -9,8 +9,10 @@
     --bold: 600;
     --bolder: 700;
     --weatherBorderRadius: 8px;
-    --rainfallBlue: rgba(162, 192, 236, 0.4);
-    --weatherIconMaroon: rgba(165, 3, 39, 0.5);
+    --rainfallBlue: #a2c0ec66;
+    --weatherIconMaroon: #a5032780;
+    --contentCardBackground: #c5aa8180;
+    --contentCardHeader: #c08d6380;
 }
 
 body {
@@ -19,9 +21,8 @@ body {
 }
 
 header {
-    margin-bottom: 100px;
     /* padding: 10px 0 0; */
-    background-color: rgba(80, 106, 67, 0.85);
+    background-color: #506a43d9;
 }
 .brand {
     padding: 10px;
@@ -83,6 +84,44 @@ a {
     border-radius: var(--weatherBorderRadius);
 }
 
+/* main content */
+
+.container {
+    height: 100vh;
+    background-color: beige;
+    padding: 3rem 8%;
+    /* margin: 0 10rem; */
+    display: flex;
+
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.content-card {
+    background-color: var(--contentCardBackground);
+    flex-grow: 1;
+    width: 45%;
+    margin: 10px 10px;
+    border: 1px solid #886b3e65;
+}
+.content-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 25px -8px rgb(73, 67, 61);
+}
+.card-header {
+    background-color: var(--contentCardHeader);
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.your-garden {
+    /* flex-grow: 5; */
+    width: 100%;
+}
+
 @media screen and (min-width: 768px) {
     header {
         padding: 5px 0 5px 0;
@@ -105,4 +144,7 @@ a {
     .widget-container {
         margin: 0;
     }
+}
+
+@media screen and (min-width: 1024px) {
 }
