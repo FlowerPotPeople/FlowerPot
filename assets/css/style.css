@@ -13,6 +13,7 @@
     --weatherIconMaroon: #a5032780;
     --contentCardBackground: #c5aa8180;
     --contentCardHeader: #c08d6380;
+    --headerBackgroundGreen: #506a43d9;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
 
 header {
     /* padding: 10px 0 0; */
-    background-color: #506a43d9;
+    background-color: var(--headerBackgroundGreen);
 }
 .brand {
     padding: 10px;

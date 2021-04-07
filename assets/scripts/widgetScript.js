@@ -75,7 +75,7 @@ function updateWeatherIcon(data) {
     const currentWeatherMainDescription = data.current.weather[0].main;
     const currentWeatherDescription = data.current.weather[0].description;
     const currentWeatherCode = data.current.weather[0].id;
-    const baseSrc = "assets/images/widget-icons/";
+    const baseSrc = "/assets/images/widget-icons/";
 
     if (currentWeatherCode === 800 && isDay) {
         weatherIcon.src = `${baseSrc}sun.svg`;
@@ -120,6 +120,7 @@ function updateRainfall(data) {
     rainfallFigure.textContent = `Rain in\nPast 24h:\n${dailyRainTotal.toFixed(
         2
     )}mm`;
+    rainfallFigure.style.color = "#000";
 }
 
 updateWeatherWidgets();
