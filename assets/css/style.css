@@ -118,7 +118,7 @@ a {
     align-items: center;
 }
 
-.your-garden {
+.your-garden, .good-to-plant {
     /* flex-grow: 5; */
     width: 100%;
 }
