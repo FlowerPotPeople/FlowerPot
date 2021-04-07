@@ -98,7 +98,6 @@ function updateWeatherIcon(data) {
     weatherIcon.alt = `${currentWeatherDescription}, cloud icon.`;
   }
   if (currentWeatherCode === 800 && !isDay) {
-    console.log("here");
     weatherIcon.src = `${baseSrc}moon-clear.svg`;
     weatherIcon.alt = `${currentWeatherDescription}, moon icon.`;
   }
