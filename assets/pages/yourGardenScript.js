@@ -4,6 +4,12 @@ const addPlantButton = document.querySelector(".submit-plant-button");
 
 let plantNameInput = document.querySelector(".plant-name-input");
 let datePlantedInput = document.querySelector(".date-planted-input");
+const plantNameSelect = document.querySelector(".plant-name-select");
+
+const harvestHelperApiKeyLH = "bd4b566cf0263ab6ba604004de134f41";
+
+const harvestHelperEndpoint = `http://harvesthelper.herokuapp.com/api/v1/plants?api_key=${harvestHelperApiKeyLH}`;
+
 function createPlantEntry() {
     let usersPlants = checkLocalStorage();
     let newPlantEntry = {
@@ -23,13 +29,7 @@ function estimatedHarvestDate(plantName) {
 
 function checkLocalStorage() {
     let userPlantArray = localStorage.getItem("userPlantsList");
-    console.log(userPlantArray);
-    if (userPlantArray) {
-        return JSON.parse(userPlantArray);
-    } else {
-        let userPlantArray = [];
-        return userPlantArray;
-    }
+    return userPlantArray ? JSON.parse(userPlantArray) : [];
 }
 function addPlanmtSubmit(event) {
     event.target;
@@ -48,3 +48,26 @@ addPlantButton.addEventListener("click", function (event) {
     plantNameInput.value = "";
     datePlantedInput.value = "";
 });
+
+function retrievePlants(url, apiKey) {
+    fetch(url)
+        .then(function (response) {
+            console.log(response);
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error("HarvestHelper Api Failed");
+        })
+        .then(function (data) {
+            console.log(data[0]);
+            data.forEach((element) => createDropown(element));
+        });
+}
+function createDropown(data) {
+    const newOption = document.createElement("option");
+    newOption.textContent = data.name;
+    newOption.value = data.id;
+    plantNameSelect.appendChild(newOption);
+}
+
+retrievePlants(harvestHelperEndpoint);

@@ -51,7 +51,6 @@ function getWeather(weatherApiUrl, rain) {
             rain ? updateRainfall(data) : updateWeatherIcon(data);
         })
         .catch(function (error) {
-            console.log(error);
             rain
                 ? widgetErrorHander(rainfallContainer)
                 : widgetErrorHander(weatherIconContainer);

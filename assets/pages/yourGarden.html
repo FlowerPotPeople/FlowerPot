@@ -38,18 +38,16 @@
                 </div>
             </nav>
         </header>
-        <div class="container-your-garden">
+        <section class="container-your-garden">
             <div class="form-container">
                     <label
                         for="plant-name-input"
                         class="plant-name-label form-label"
                         id="plant-name-label"
                     >Plant Name:</label>
-                    <input
-                    type="text"
-                        class="plant-name-input form-input"
-                        id="plant-name-input"
-                    />
+                    <!-- change this to an option based on the harvesthelper api -->
+                    <select class="plant-name-select form-input" id="plant-name-select">
+                    </select>
                     <label
                         for="date-planted-input"
                         class="date-planted-label form-label"
@@ -83,7 +81,7 @@
                 <input type="text" class="nickname-input form-input" id="#name-input" />
                 <button class="submit-name-button button">Submit Nickname</button>
             </div>
-        </div>
+        </section>
         <!-- cdn scripts -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js" integrity="sha512-rKFvwjvE4liWPlFnvH4ZhRDfNZ9FOpdkD/BU5gAIA3VS3vOQrQ5BjKgbO3kxebKhHdHcNUHLqxQYSoxee9UwgA==" crossorigin="anonymous"></script>
