@@ -1,29 +1,70 @@
 // TODO:
-// Its a good time to plant Card:
-// template to show what is good to plant right now for the user.
-// - link to a new page to show more results
-// - given weather & month list out appropriate plants for planting with recommendations on
+// Team Favourites plant Card:
+// template to show the first favourite plant of each team memeber containing:
+// - plant name
 // - sun/shade requirement,
-// - avg spread and height of plant,
-// - planting description?
-// - see if we can get an image and alt tag
+// - image and alt tag
+// - on click will show new page with more favourites
 
-populateFavouritePlants();
-// callTrefleApi();
-function populateFavouritePlants() {
+const favPlants = {
+  lewis: {
+    title: "Lewis enjoys",
+    plants: ["Rhubarb", "Rosemary", "Sweet Potato", "Lettuce", "Chives"],
+  },
+  clare: {
+    title: "Clare loves",
+    plants: [
+      "Brussels Sprouts",
+      "Watermelon",
+      "Broccoli",
+      "Garlic",
+      "Tomatoes",
+    ],
+  },
+  obby: { title: "Obby likes", plants: ["Beets"] },
+};
+
+const harvestHelperImages =
+  "https://res-4.cloudinary.com/do6bw42am/image/upload/c_scale,f_auto,h_300/v1/";
+
+callHarvestHelperApi();
+
+function populateFavouritePlants(teamFavPlants) {
   for (let i = 0; i < 3; i++) {
+    const teamMember = favPlants[teamFavPlants[i].name];
+    const plant = teamFavPlants[i].plant;
     const el = createElementFromString(`
-      <div class="card-content" >
-        <h3>${title}</h3>
-        <p>${plantName}</p>
-        <img src=${
-          harvestHelperImages + imgUrl
-        } width="200" alt="image of plant ${plantName}">
-        <p>Prefers <span>${sunPreference}</span></p>
+      <div class="card-content">
+        <h3>${teamMember.title}</h3>
+        <p>${plant.name}</p>
+        <img src="${
+          harvestHelperImages + plant.image_url
+        }" width="200" alt="image of plant ${plant.name}">
+        <p>Prefers <span>${plant.optimal_sun}</span></p>
       </div>
     `);
     document.getElementById("team-fav-plants").appendChild(el);
   }
+}
+
+function callHarvestHelperApi() {
+  fetch(
+    "http://harvesthelper.herokuapp.com/api/v1/plants?api_key=5bbf7f6a0d2a91ea29a665bbbd787fd5"
+  )
+    .then((response) => response.json())
+    .then(function (data) {
+      const teamFavPlants = [];
+      console.log("fullset data: ", data);
+      for (const name in favPlants) {
+        const plant = data.find((plant) => {
+          return plant.name === favPlants[name].plants[0];
+        });
+        teamFavPlants.push({ name, plant });
+      }
+      console.log("teamFavPlants: ", teamFavPlants);
+
+      populateFavouritePlants(teamFavPlants);
+    });
 }
 
 function createElementFromString(str) {
@@ -65,52 +106,3 @@ function createElementFromString(str) {
 //         });
 //     });
 // }
-const favPlants = {
-  lewis: {
-    title: "Lewis enjoys",
-    plants: ["Rhubarb", "Rosemary", "Sweet Potato", "Lettuce", "Chives"],
-  },
-  clare: {
-    title: "Clare loves",
-    plants: [
-      "Brussels Sprouts",
-      "Watermelon",
-      "Broccoli",
-      "Garlic",
-      "Tomatoes",
-    ],
-  },
-  obby: { title: "Obby likes", plants: [] },
-};
-const teamFavPlants = [];
-
-const harvestHelperImages =
-  "https://res-4.cloudinary.com/do6bw42am/image/upload/c_scale,f_auto,h_300/v1/";
-
-callHarvestHelperApi();
-
-function callHarvestHelperApi() {
-  fetch(
-    "http://harvesthelper.herokuapp.com/api/v1/plants?api_key=5bbf7f6a0d2a91ea29a665bbbd787fd5"
-  )
-    .then((response) => response.json())
-    .then(function (data) {
-      console.log(data);
-      for (const property in favPlants) {
-        teamFavPlants.push(favPlants[property].plants[0]);
-      }
-      console.log(teamFavPlants);
-      const favPlantInfo = data.filter((plant) => {
-        return teamFavPlants.includes(plant.name);
-      });
-      console.log(favPlantInfo);
-
-      // const plantName = document.getElementById("plant-name");
-      // plantName.innerHTML = favPlantInfo["name"];
-      // const img = document.getElementById("suitablePlantImg");
-      // img.src = harvestHelperImages + favPlantInfo["image_url"];
-      // img.alt = `Image of a ${favPlantInfo["name"]}`;
-      // document.getElementById("sunPreference").innerHTML =
-      // favPlantInfo["optimal_sun"];
-    });
-}
