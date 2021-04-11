@@ -8,34 +8,29 @@
 // - planting description?
 // - see if we can get an image and alt tag
 
-// populateSuitablePlants();
+populateFavouritePlants();
 // callTrefleApi();
-// function populateSuitablePlants() {
-//   for (let i = 0; i < 3; i++) {
-//     const el = createElementFromString(`
-//     <div id="suitableForPlanting" class="card-content plants">
-//       <p id="plant-name">{Plant name}</p>
-//       <img id="suitablePlantImg" src="assets/images/background image.jpeg" width="150" alt="image of plant">
-//       <p>Prefers <span>{full sun}</span></p>
-//       <p>Average height is <span>{1 meter}</span></p>
-//       <p>Average span of <span>{plant name}</span> is <span>{50 cm}</span></p>
-//     </div>
-//     `);
-//     // if (fruit || vegetable) {
-//     //   const edible = createElementFromString(
-//     //     `<p>**This plant bears fruit or may be edible**</p>`
-//     //   );
-//     //   document.getElementById("suitableForPlanting").appendChild(edible);
-//     // }
-//     document.getElementById("good-to-plant").appendChild(el);
-//   }
-// }
+function populateFavouritePlants() {
+  for (let i = 0; i < 3; i++) {
+    const el = createElementFromString(`
+      <div class="card-content" >
+        <h3>${title}</h3>
+        <p>${plantName}</p>
+        <img src=${
+          harvestHelperImages + imgUrl
+        } width="200" alt="image of plant ${plantName}">
+        <p>Prefers <span>${sunPreference}</span></p>
+      </div>
+    `);
+    document.getElementById("team-fav-plants").appendChild(el);
+  }
+}
 
-// function createElementFromString(str) {
-//   const template = document.createElement("div");
-//   template.innerHTML = str;
-//   return template.children[0];
-// }
+function createElementFromString(str) {
+  const template = document.createElement("div");
+  template.innerHTML = str;
+  return template.children[0];
+}
 
 // function callTrefleApi() {
 //   // call the trefle API using proxy server to avoid CORS issue
@@ -70,14 +65,25 @@
 //         });
 //     });
 // }
-const lewisFav = ["Rhubarb", "Rosemary", "Sweet Potato", "Lettuce", "Chives"];
-const clareFav = [
-  "Brussels Sprouts",
-  "Watermelon",
-  "Broccoli",
-  "Garlic",
-  "Tomatoes",
-];
+const favPlants = {
+  lewis: {
+    title: "Lewis enjoys",
+    plants: ["Rhubarb", "Rosemary", "Sweet Potato", "Lettuce", "Chives"],
+  },
+  clare: {
+    title: "Clare loves",
+    plants: [
+      "Brussels Sprouts",
+      "Watermelon",
+      "Broccoli",
+      "Garlic",
+      "Tomatoes",
+    ],
+  },
+  obby: { title: "Obby likes", plants: [] },
+};
+const teamFavPlants = [];
+
 const harvestHelperImages =
   "https://res-4.cloudinary.com/do6bw42am/image/upload/c_scale,f_auto,h_300/v1/";
 
@@ -90,19 +96,21 @@ function callHarvestHelperApi() {
     .then((response) => response.json())
     .then(function (data) {
       console.log(data);
-      fetch(
-        `http://harvesthelper.herokuapp.com/api/v1/plants/28?api_key=5bbf7f6a0d2a91ea29a665bbbd787fd5`
-      )
-        .then((response) => response.json())
-        .then(function (data) {
-          console.log(data);
-          const plantName = document.getElementById("plant-name");
-          plantName.innerHTML = data["name"];
-          const img = document.getElementById("suitablePlantImg");
-          img.src = harvestHelperImages + data["image_url"];
-          img.alt = `Image of a ${data["name"]}`;
-          document.getElementById("sunPreference").innerHTML =
-            data["optimal_sun"];
-        });
+      for (const property in favPlants) {
+        teamFavPlants.push(favPlants[property].plants[0]);
+      }
+      console.log(teamFavPlants);
+      const favPlantInfo = data.filter((plant) => {
+        return teamFavPlants.includes(plant.name);
+      });
+      console.log(favPlantInfo);
+
+      // const plantName = document.getElementById("plant-name");
+      // plantName.innerHTML = favPlantInfo["name"];
+      // const img = document.getElementById("suitablePlantImg");
+      // img.src = harvestHelperImages + favPlantInfo["image_url"];
+      // img.alt = `Image of a ${favPlantInfo["name"]}`;
+      // document.getElementById("sunPreference").innerHTML =
+      // favPlantInfo["optimal_sun"];
     });
 }
