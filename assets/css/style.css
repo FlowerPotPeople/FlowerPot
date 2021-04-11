@@ -91,9 +91,7 @@ a {
     height: 100vh;
     background-color: beige;
     padding: 3rem 8%;
-    /* margin: 0 10rem; */
     display: flex;
-
     flex-wrap: wrap;
     justify-content: space-between;
 }
@@ -117,26 +115,29 @@ a {
     width: 100%;
     height: 20%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.your-garden, .good-to-plant {
-    /* flex-grow: 5; */
+.your-garden, .favourites-card {
     width: 100%;
 }
 
 .plants {
     flex-grow: 1;
-    margin: 1rem 1em;
+    margin: 0 1rem 1rem 1em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
-.card-content h3, img {
+.card-content h3 {
     margin: .5em 0;
-    
+}
+
+.card-content img, .card-content p {
+    margin-bottom: .5em;  
 }
 
 @media screen and (min-width: 768px) {

@@ -1,12 +1,7 @@
 // TODO:
-// Team Favourites plant Card:
-// template to show the first favourite plant of each team memeber containing:
-// - plant name
-// - sun/shade requirement,
-// - image and alt tag
 // - on click will show new page with more favourites
 
-const favPlants = {
+const favPlantsList = {
   lewis: {
     title: "Lewis enjoys",
     plants: ["Rhubarb", "Rosemary", "Sweet Potato", "Lettuce", "Chives"],
@@ -29,9 +24,9 @@ const harvestHelperImages =
 
 callHarvestHelperApi();
 
-function populateFavouritePlants(teamFavPlants) {
+function populateFavouritePlantCard(teamFavPlants) {
   for (let i = 0; i < 3; i++) {
-    const teamMember = favPlants[teamFavPlants[i].name];
+    const teamMember = favPlantsList[teamFavPlants[i].name];
     const plant = teamFavPlants[i].plant;
     const el = createElementFromString(`
       <div class="card-content">
@@ -39,7 +34,7 @@ function populateFavouritePlants(teamFavPlants) {
         <p>${plant.name}</p>
         <img src="${
           harvestHelperImages + plant.image_url
-        }" width="200" alt="image of plant ${plant.name}">
+        }" width="200" alt="image of ${plant.name}">
         <p>Prefers <span>${plant.optimal_sun}</span></p>
       </div>
     `);
@@ -54,16 +49,15 @@ function callHarvestHelperApi() {
     .then((response) => response.json())
     .then(function (data) {
       const teamFavPlants = [];
-      console.log("fullset data: ", data);
-      for (const name in favPlants) {
+      // console.log("fullset data: ", data);
+      for (const name in favPlantsList) {
         const plant = data.find((plant) => {
-          return plant.name === favPlants[name].plants[0];
+          return plant.name === favPlantsList[name].plants[0];
         });
         teamFavPlants.push({ name, plant });
       }
-      console.log("teamFavPlants: ", teamFavPlants);
-
-      populateFavouritePlants(teamFavPlants);
+      // console.log("teamFavPlants: ", teamFavPlants);
+      populateFavouritePlantCard(teamFavPlants);
     });
 }
 
@@ -72,6 +66,8 @@ function createElementFromString(str) {
   template.innerHTML = str;
   return template.children[0];
 }
+
+// Might use for a search scientific name from common name or alternate common names function
 
 // function callTrefleApi() {
 //   // call the trefle API using proxy server to avoid CORS issue
