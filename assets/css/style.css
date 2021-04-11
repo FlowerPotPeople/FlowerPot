@@ -129,6 +129,14 @@ a {
 .plants {
     flex-grow: 1;
     margin: 1rem 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card-content h3, img {
+    margin: .5em 0;
+    
 }
 
 @media screen and (min-width: 768px) {

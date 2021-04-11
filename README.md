@@ -26,13 +26,13 @@ Icons:
 
 ### Application Requirements (project 1 Monash Full Stack Coding BootCamp):
 
-- [] Use a CSS framework other than Bootstrap
+- [] Optional: Use a CSS framework other than Bootstrap
 - [x] Be deployed to GitHub Pages
-- [] Be interactive (i.e., accept and respond to user input)
+- [x] Be interactive (i.e., accept and respond to user input)
 - [x] Use at least two server-side APIs
-- [] Do not use JS alerts, confirms or prompts (use modals instead)
-- [] Use client-side storage to store persistent data
-- [] Be responsive
+- [x] Do not use JS alerts, confirms or prompts (use modals instead)
+- [x] Use client-side storage to store persistent data
+- [x] Be responsive
 - [] Have a polished UI
 - [] Have a clean repository that meets quality coding standards
 - [] Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application)
