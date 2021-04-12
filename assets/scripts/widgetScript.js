@@ -28,7 +28,7 @@ function updateWeatherWidgets() {
         const lat = userCoordinatesObject.usersLatitude;
         const excludeParams = "minutely";
         // unix here is temp, could embed this function in the url itself -- for testing i will leave it as a variable here
-        const yesterdayUnix = (moment().unix() - 86400 * 4) / 1;
+        const yesterdayUnix = (moment().unix() - 86400) / 1;
         const weatherApiUrlNormal = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${excludeParams}&appid=${weatherApiKey}&units=metric`;
         const weatherApiUrlRain = `https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&exclude=${excludeParams}&appid=${weatherApiKey}&units=metric&dt=${yesterdayUnix}`;
         getWeather(weatherApiUrlNormal, false);
@@ -108,6 +108,7 @@ function updateWeatherIcon(data) {
 }
 
 function updateRainfall(data) {
+    console.log(data);
     const hourlyDataArray = data.hourly;
     let dailyRainTotal = 0;
     for (var i = 0; i < hourlyDataArray.length; i++) {
