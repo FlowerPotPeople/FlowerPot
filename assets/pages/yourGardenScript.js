@@ -28,15 +28,23 @@ function checkLocalStorage() {
 function addRowsToTable(usersPlants) {
     let plantsTable = document.querySelector(".users-plants-table");
     if (usersPlants) {
+        // for every plant in the users local storage
         usersPlants.forEach(function (plant) {
+            const urlWithPlantId = `http://harvesthelper.herokuapp.com/api/v1/plants/${
+                plant.plantId / 1
+            }:plant_id?api_key=${harvestHelperApiKeyLH}`;
+            // create rows and cells, fill their values
             const newPlantRow = plantsTable.insertRow(-1);
             newPlantRow.insertCell().textContent = plant.plantName;
             newPlantRow.insertCell().textContent = plant.datePlanted;
             console.log(plant.plantId);
-            newPlantRow.insertCell().textContent = retrievePlantPropety(
-                plant.plantId,
+            newPlantRow.insertCell().textContent = retrievePlants(
+                urlWithPlantId,
                 "optimal_sun"
             );
+            console.log(plant.plantId);
+            console.log(plant["optimal_sun"]);
+            console.log(plant);
         });
     }
 }
@@ -45,9 +53,12 @@ function retrievePlantPropety(plantId, property) {
     const urlWithPlantId = `http://harvesthelper.herokuapp.com/api/v1/plants/${
         plantId / 1
     }:plant_id?api_key=${harvestHelperApiKeyLH}`;
-    return retrievePlants(urlWithPlantId, property);
+    console.log(urlWithPlantId);
+    const plantRecieved = retrievePlants(urlWithPlantId, true);
+    console.log(`plantRevieced var ${plantRecieved}`);
+    return plantRecieved[property];
 }
-retrievePlantPropety(plant.plantId, "optimal_sun");
+// retrievePlantPropety(plant.plantId, "optimal_sun");
 
 addPlantButton.addEventListener("click", function (event) {
     event.preventDefault();
@@ -64,9 +75,8 @@ function retrievePlants(url, property = 0) {
             throw new Error("HarvestHelper Api Failed");
         })
         .then(function (data) {
-            console.log(data);
             property
-                ? console.log(data)
+                ? console.log(data[property])
                 : data.forEach((element) => createDropown(element));
         })
         .catch(function (err) {});
@@ -77,5 +87,8 @@ function createDropown(data) {
     newOption.value = data.id;
     plantNameSelect.appendChild(newOption);
 }
+
 addRowsToTable(checkLocalStorage());
-retrievePlants(harvestHelperEndpointAllPlants, true);
+
+// this call is for the dropdown menu
+retrievePlants(harvestHelperEndpointAllPlants);
