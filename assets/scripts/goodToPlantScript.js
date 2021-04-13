@@ -16,7 +16,10 @@ const favPlantsList = {
       "Tomatoes",
     ],
   },
-  obby: { title: "Obby likes", plants: ["Beets"] },
+  obby: {
+    title: "Obby likes",
+    plants: ["Cucumbers", "Basil", "Sweet Corn", "Carrots", "Beets"],
+  },
 };
 
 const harvestHelperImages =
@@ -29,7 +32,7 @@ function populateFavouritePlantCard(teamFavPlants) {
     const teamMember = favPlantsList[teamFavPlants[i].name];
     const plant = teamFavPlants[i].plant;
     const el = createElementFromString(`
-      <div class="card-content">
+      <div class="card-content fav-content">
         <h3>${teamMember.title}</h3>
         <p>${plant.name}</p>
         <img src="${
@@ -49,14 +52,14 @@ function callHarvestHelperApi() {
     .then((response) => response.json())
     .then(function (data) {
       const teamFavPlants = [];
-      // console.log("fullset data: ", data);
+      console.log("fullset data: ", data);
       for (const name in favPlantsList) {
         const plant = data.find((plant) => {
           return plant.name === favPlantsList[name].plants[0];
         });
         teamFavPlants.push({ name, plant });
       }
-      // console.log("teamFavPlants: ", teamFavPlants);
+      console.log("teamFavPlants: ", teamFavPlants);
       populateFavouritePlantCard(teamFavPlants);
     });
 }
