@@ -95,6 +95,6 @@ addPlantButton.addEventListener("click", function (event) {
 
 submitNicknameButton.addEventListener("click", function (event) {
     event.preventDefault();
-    localStorage.setItem("usersNickname", JSON.stringify(nicknameInput.value));
+    localStorage.setItem("usersNickname", nicknameInput.value);
     nicknameInput.value = "";
 });
