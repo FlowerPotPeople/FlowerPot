@@ -25,10 +25,12 @@ body{
     height: 100%;
     margin:15px;
     font-family: new ;
+    content: center;
 }
 
 header {
     display: flexbox;
+    display: inline-flexbox;
     position: relative;
     width: 100%;
     height: 100%;
@@ -39,6 +41,8 @@ header {
     font-family: "New Tegomin";
     display: inline-block;
     flex-direction: row;
+    align-items: center;
+    
 }
 .brand{
     font-size: 18px;
@@ -66,7 +70,32 @@ a {
     text-decoration: none;
 }
 
+.card {
+    display: flexbox;
+    display: inline-flexbox;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: var(--beige);
+    box-sizing: border-box;
+    border: Var(--ltbrn);
+    margin: 10px;
+    justify-items: center;
+}
 
+.container{
+    padding: 3rem 8%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-items: center;
+    margin: 0 10rem;
+    width: 60%;
+    padding: 3rem 8%;
+    justify-items: flex-end;
+    font-family: "New Tegomin"; 
+    
+}
 
 .card:hover {
     transform: scale(1.01);
@@ -86,11 +115,13 @@ a {
     background-color: var(--beige);
     
 }
+div {
+    display: block;
+}
 
 #now {
     display: flexbox;
-    position: absolute;
-    width: 1099px;
+    width: 100%;
     height: 213.07px;
     left: 163px;
     top: 202px;
@@ -100,10 +131,21 @@ a {
     box-shadow: 0px 0px 3px ;
 }
 
+.favs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--beige);
+    justify-content: space-evenly;
+
+}
+
 .seed {
     display: flexbox;
-    position: absolute;
-    width: 520.17px;
+    
+    width: 45%;
     height: 230.55px;
     left: 163px;
     top: 478.34px;
@@ -115,9 +157,9 @@ a {
 
 .origins {
     display: flexbox;
-    position: absolute;
     width: 520.17px;
     height: 230.55px;
+    width: 45%;
     left: 741.83px;
     top: 478.34px;
     background-color: var(--beige);
@@ -126,10 +168,15 @@ a {
     box-shadow: 0px 0px 3px ;
 }
 
+.link {
+    color: black;
+    text-decoration: none;
+}
+
 .when {
     display: flexbox;
-    position: absolute;
-    width: 520.17px;
+    
+    width: 45%;
     height: 230.55px;
     left: 163px;
     top: 763.45px;
@@ -141,8 +188,8 @@ a {
 
 .companion {
     display: flexbox;
-    position: absolute;
-    width: 520.17px;
+    
+    width: 45%;
     height: 230.55px;
     left: 741.83px;
     top: 763.45px;
@@ -154,8 +201,8 @@ a {
 
 .garden {
     display: flexbox;
-    position: absolute;
-    width: 1099px;
+    
+    width: 100%;
     height: 213.07px;
     left: 163px;
     top: 1048.56px;
@@ -177,4 +224,10 @@ footer {
     font-family: "new Tegomin";
     padding: 10px;
     text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
 }
