@@ -115,7 +115,7 @@ function updateRainfall(data) {
             dailyRainTotal += hourlyDataArray[i].rain["1h"];
         }
     }
-    rainfallFigure.textContent = `Total Rain\nYesterday:\n${dailyRainTotal.toFixed(
+    rainfallFigure.textContent = `Rain\nYesterday\n${dailyRainTotal.toFixed(
         2
     )}mm`;
     rainfallFigure.style.color = "#000";
