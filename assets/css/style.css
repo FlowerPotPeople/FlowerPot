@@ -22,6 +22,7 @@ body {
 }
 
 header {
+    padding: 0 8%;
     /* padding: 10px 0 0; */
     background-color: var(--headerBackgroundGreen);
 }
@@ -127,7 +128,7 @@ a {
 
 @media screen and (min-width: 768px) {
     header {
-        padding: 5px 0 5px 0;
+        padding: 5px 8% 5px 8%;
         display: flex;
         flex-direction: row;
         align-items: center;

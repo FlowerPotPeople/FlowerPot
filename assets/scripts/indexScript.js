@@ -122,4 +122,11 @@ function updateRainfall(data) {
     rainfallFigure.style.color = "#000";
 }
 
+function gardenNickname() {
+    const yourGardenHeader = document.querySelector(".your-garden-header");
+    const usersNickname = localStorage.getItem("usersNickname");
+    usersNickname &&
+        (yourGardenHeader.textContent = `${usersNickname}'s Garden`);
+}
+gardenNickname();
 updateWeatherWidgets();
