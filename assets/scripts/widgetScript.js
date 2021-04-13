@@ -115,14 +115,10 @@ function updateRainfall(data) {
             dailyRainTotal += hourlyDataArray[i].rain["1h"];
         }
     }
-    rainfallFigure.textContent = `Rain in\nPast 24h:\n${dailyRainTotal.toFixed(
+    rainfallFigure.textContent = `Total Rain\nYesterday:\n${dailyRainTotal.toFixed(
         2
     )}mm`;
     rainfallFigure.style.color = "#000";
-}
-
-function capitaliseString(string) {
-    return `${string[0].toUpperCase()}${string.slice(1)}`;
 }
 
 updateWeatherWidgets();
