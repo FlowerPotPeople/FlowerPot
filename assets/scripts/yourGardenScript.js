@@ -35,7 +35,6 @@ function addRowsToTable(usersPlants, apiPlant) {
             const urlWithPlantId = `http://harvesthelper.herokuapp.com/api/v1/plants/${
                 plant.plantId / 1
             }:plant_id?api_key=${harvestHelperApiKeyLH}`;
-            console.log(`url with plant id ${urlWithPlantId}`);
 
             // create rows and cells, fill their values
             retrievePlants(urlWithPlantId, "optimal_sun", plant);
@@ -76,7 +75,7 @@ function createDropown(data) {
 function checkForNickname() {
     localStorage.getItem("usersNickname")
         ? (nicknameInput.placeholder =
-              "You have a nickname, submitting another will overwrite.")
+              "You have a nickname, submit another to overwrite.")
         : (nicknameInput.placeholder = "Enter Your Nickname Here..");
 }
 
