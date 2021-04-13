@@ -2,6 +2,7 @@
 
 A website to take the growing pains out of learning how to garden.
 
+
 FlowerPot provides a user friendly entry into the realm of gardening or a great place to expand your knowledge.
 With information on how to plant, sun and soil preference, watering recommendations and weather information specific to your area to help you grow your garden.
 Find seed banks and local sellers to buy your next plant, watering guides dependant on the rainfall in your area, the weather forcast to know when the hot days are coming and ways to give your plants extra TLC. Learn about the best locations to plant different species, companion planting and the benefits or look up the origins of different plants.

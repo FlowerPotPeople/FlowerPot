@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The FlowerPot</title>
     <!-- defer attribute runs the script after the HTML has rendered -->
+    <script src="assets/scripts/indexScript.js" defer></script>
     <script src="assets/scripts/widgetScript.js" defer></script>
     <script src="assets/scripts/goodToPlantScript.js" defer></script>
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -22,10 +23,10 @@
                     <a class ='nav-link'>About Us</a>
                 </li>
                 <li class = 'nav-links'> 
-                    <a class ='nav-link'>Contact</a>
+                    <a class ='nav-link' href ="mailto:example@example.com">Contact</a>
                 </li>
                 <li class = 'nav-links'> 
-                    <a class ='nav-link'>Gallery</a>
+                    <a class ='nav-link' >Gallery</a>
                 </li>
             </ul>
         
@@ -40,6 +41,9 @@
     </header>
     <section class="hero">
         <div class="container">
+
+
+
             <a href="#" id="favourites-card"  class="favourites-card content-card">
                 <div class="card-header favourites-header">
                     <h2>Team Favourites</h2>
@@ -49,47 +53,42 @@
                     <!-- Individual cards for each team member display here  -->
                 </div>
             </a>
+            <a id="your-garden"  class="your-garden content-card" href = "yourGarden.html">
+                <div class="card-header">
+                <h2 class = 'your-garden-header'> Your Garden</h2>
+            </a>
 
-            <div id="seeds-bank" class="seeds-bank content-card">
+            <a id="seeds-bank" class="seeds-bank content-card">
                 <div class="card-header">
                     <h2>Seeds bank</h2>
                 </div>
                 <div class="card-content">
                     <p>Placeholder</p>
                 </div>
-            </div>
-            <div id="where-to-plant"  class="where-to-plant content-card">
+            </a>
+            <a id="where-to-plant"  class="where-to-plant content-card">
                 <div class="card-header">
                     <h2>Where to plant</h2>
                 </div>
                 <div class="card-content">
                     <p>Placeholder</p>
                 </div>
-            </div>
-            <div id="plant-origin" class="plant-origin content-card">
+            </a>
+            <a id="plant-origin" class="plant-origin content-card">
                 <div class="card-header">
                     <h2>Plant Origin</h2>
                 </div>
                 <div class="card-content">
                     <p>Placeholder</p>
                 </div>
-            </div>
-            <div id="companion-planting" class="companion-planting content-card">
+            </a>
+            <a id="companion-planting" class="companion-planting content-card">
                 <div class="card-header">
                     <h2>Companion Planting</h2>
                 </div>
                 <div class="card-content">
                     <p>Placeholder</p>
                 </div>
-            </div>
-            <div id="your-Garden"  class="your-garden content-card">
-                <div class="card-header">
-                    <h2> Your Garden</h2>
-                </div>
-                <div class="card-content">
-                    <p>Keep track of your plants here!</p>
-                </div>
-            </div>
         </div>
     </section>
 
