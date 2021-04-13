@@ -17,7 +17,7 @@ function createPlantEntry() {
     let newPlantEntry = {
         plantName: plantNameSelect.options[plantNameSelect.selectedIndex].text,
         // handle "Invalid Date"
-        datePlanted: moment(datePlantedInput.value).format("DD/MM/YY"),
+        datePlanted: datePlantedInput.value,
         plantId: plantNameSelect.options[plantNameSelect.selectedIndex].value,
     };
     usersPlants.push(newPlantEntry);
@@ -29,21 +29,31 @@ function checkLocalStorage() {
     return userPlantArray ? JSON.parse(userPlantArray) : [];
 }
 function addRowsToTable(usersPlants, apiPlant) {
+    document.querySelectorAll(".plant-row").forEach((elem) => elem.remove());
     if (usersPlants) {
         // for every plant in the users local storage
         usersPlants.forEach(function (plant) {
-            const urlWithPlantId = `http://harvesthelper.herokuapp.com/api/v1/plants/${
-                plant.plantId / 1
-            }:plant_id?api_key=${harvestHelperApiKeyLH}`;
-
-            // create rows and cells, fill their values
-            retrievePlants(urlWithPlantId, "optimal_sun", plant);
+            if (plant.plantId) {
+                const urlWithPlantId = `http://harvesthelper.herokuapp.com/api/v1/plants/${
+                    plant.plantId / 1
+                }:plant_id?api_key=${harvestHelperApiKeyLH}`;
+                // create rows and cells, fill their values
+                retrievePlants(urlWithPlantId, "optimal_sun", plant);
+            }
+            return;
         });
     }
 }
 
+function setInputStartDate() {
+    document.querySelector("#date-planted-input").value = moment().format(
+        "MM/DD/YYYY"
+    );
+}
+
 function createRow(plantApiData, localStoragePlant, property) {
     const newPlantRow = plantsTable.insertRow(-1);
+    newPlantRow.className = "plant-row";
     newPlantRow.insertCell().textContent = plantApiData.name;
     newPlantRow.insertCell().textContent = localStoragePlant.datePlanted;
     newPlantRow.insertCell().textContent = plantApiData[property];
@@ -78,10 +88,9 @@ function checkForNickname() {
               "You have a nickname, submit another to overwrite.")
         : (nicknameInput.placeholder = "Enter Your Nickname Here..");
 }
-
+setInputStartDate();
 checkForNickname();
 addRowsToTable(checkLocalStorage());
-
 // this retrieves all plants
 retrievePlants(harvestHelperEndpointAllPlants);
 
@@ -89,6 +98,7 @@ retrievePlants(harvestHelperEndpointAllPlants);
 addPlantButton.addEventListener("click", function (event) {
     event.preventDefault();
     createPlantEntry();
+    addRowsToTable(checkLocalStorage());
     datePlantedInput.value = "";
 });
 

@@ -59,7 +59,7 @@ a {
 }
 
 .widget-container {
-    margin: 10px auto 3px auto;
+    margin: 10px auto 3px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -78,7 +78,7 @@ a {
 }
 
 .rainfall-icon-container {
-    font-size: 16px;
+    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
