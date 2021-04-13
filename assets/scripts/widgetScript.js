@@ -12,11 +12,12 @@ const weatherApiKey = "7e5922ef7f6bc85e485e53b28667f43a";
 // const weatherApiUrlRain = `https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&exclude=${excludeParams}&appid=${weatherApiKey}&units=metric&dt=${yesterdayUnix}`
 
 function updateWeatherWidgets() {
-    var options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0,
-    };
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
+
 
     function success(userPosition) {
         let userCoordinatesResponseObject = userPosition.coords;
@@ -55,16 +56,17 @@ function getWeather(weatherApiUrl, rain) {
                 ? widgetErrorHander(rainfallContainer)
                 : widgetErrorHander(weatherIconContainer);
 
-            // handle error so that user knows something went wrong
-            // DON'T JUST CONSOLE LOG
-        });
+
+      // handle error so that user knows something went wrong
+      // DON'T JUST CONSOLE LOG
+    });
 }
 function widgetErrorHander(container) {
-    container.firstElementChild.remove();
-    let errorElement = document.createElement("P");
-    errorElement.textContent = "Can't\nReach\n API.";
-    errorElement.style.display = "block";
-    container.appendChild(errorElement);
+  container.firstElementChild.remove();
+  let errorElement = document.createElement("P");
+  errorElement.textContent = "Can't\nReach\n API.";
+  errorElement.style.display = "block";
+  container.appendChild(errorElement);
 }
 function updateWeatherIcon(data) {
     // debugger;
@@ -105,20 +107,22 @@ function updateWeatherIcon(data) {
         weatherIcon.src = `${baseSrc}moon-and-cloud.svg`;
         weatherIcon.alt = `${currentWeatherDescription}, moon and cloud icon together`;
     }
+
 }
 
 function updateRainfall(data) {
-    const hourlyDataArray = data.hourly;
-    let dailyRainTotal = 0;
-    for (var i = 0; i < hourlyDataArray.length; i++) {
-        if ("rain" in hourlyDataArray[i]) {
-            dailyRainTotal += hourlyDataArray[i].rain["1h"];
-        }
+  const hourlyDataArray = data.hourly;
+  let dailyRainTotal = 0;
+  for (var i = 0; i < hourlyDataArray.length; i++) {
+    if ("rain" in hourlyDataArray[i]) {
+      dailyRainTotal += hourlyDataArray[i].rain["1h"];
     }
+
     rainfallFigure.textContent = `Rain\nYesterday\n${dailyRainTotal.toFixed(
         2
     )}mm`;
     rainfallFigure.style.color = "#000";
+
 }
 
 updateWeatherWidgets();

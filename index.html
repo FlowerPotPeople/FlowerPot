@@ -6,10 +6,11 @@
     <title>The FlowerPot</title>
     <!-- defer attribute runs the script after the HTML has rendered -->
     <script src="assets/scripts/indexScript.js" defer></script>
+    <script src="assets/scripts/widgetScript.js" defer></script>
+    <script src="assets/scripts/goodToPlantScript.js" defer></script>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <script src="assets/scripts/widgetScript.js" defer></script>
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet"></head>
 <body>
@@ -40,13 +41,21 @@
     </header>
     <section class="hero">
         <div class="container">
+
+
+
+            <a href="#" id="favourites-card"  class="favourites-card content-card">
+                <div class="card-header favourites-header">
+                    <h2>Team Favourites</h2>
+                    <p>To see more of our favourites and information about them click here</p>
+                </div>
+                <div id="team-fav-plants" class="card-content plants">
+                    <!-- Individual cards for each team member display here  -->
+                </div>
+            </a>
             <a id="your-garden"  class="your-garden content-card" href = "yourGarden.html">
                 <div class="card-header">
-                    <h2 class = 'your-garden-header'> Your Garden</h2>
-                </div>
-                <div class="card-content">
-                    <p>its a good time to plant: list of stuff</p>
-                </div>
+                <h2 class = 'your-garden-header'> Your Garden</h2>
             </a>
 
             <a id="seeds-bank" class="seeds-bank content-card">
@@ -80,7 +89,6 @@
                 <div class="card-content">
                     <p>Placeholder</p>
                 </div>
-            </a>
         </div>
     </section>
 
