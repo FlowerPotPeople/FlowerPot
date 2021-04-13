@@ -28,7 +28,7 @@ function updateWeatherWidgets() {
         const lat = userCoordinatesObject.usersLatitude;
         const excludeParams = "minutely";
         // unix here is temp, could embed this function in the url itself -- for testing i will leave it as a variable here
-        const yesterdayUnix = (moment().unix() - 86400 * 4) / 1;
+        const yesterdayUnix = (moment().unix() - 86400) / 1;
         const weatherApiUrlNormal = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${excludeParams}&appid=${weatherApiKey}&units=metric`;
         const weatherApiUrlRain = `https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&exclude=${excludeParams}&appid=${weatherApiKey}&units=metric&dt=${yesterdayUnix}`;
         getWeather(weatherApiUrlNormal, false);
@@ -51,7 +51,6 @@ function getWeather(weatherApiUrl, rain) {
             rain ? updateRainfall(data) : updateWeatherIcon(data);
         })
         .catch(function (error) {
-            console.log(error);
             rain
                 ? widgetErrorHander(rainfallContainer)
                 : widgetErrorHander(weatherIconContainer);
@@ -75,7 +74,7 @@ function updateWeatherIcon(data) {
     const currentWeatherMainDescription = data.current.weather[0].main;
     const currentWeatherDescription = data.current.weather[0].description;
     const currentWeatherCode = data.current.weather[0].id;
-    const baseSrc = "/assets/images/widget-icons/";
+    const baseSrc = "./assets/images/widget-icons/";
 
     if (currentWeatherCode === 800 && isDay) {
         weatherIcon.src = `${baseSrc}sun.svg`;
@@ -96,7 +95,6 @@ function updateWeatherIcon(data) {
         weatherIcon.src = `${baseSrc}overcast.svg`;
         weatherIcon.alt = `${currentWeatherDescription}, cloud icon.`;
     } else if (currentWeatherCode === 800 && !isDay) {
-        console.log("here");
         weatherIcon.src = `${baseSrc}moon-clear.svg`;
         weatherIcon.alt = `${currentWeatherDescription}, moon icon.`;
     } else if (
@@ -116,11 +114,12 @@ function updateRainfall(data) {
         if ("rain" in hourlyDataArray[i]) {
             dailyRainTotal += hourlyDataArray[i].rain["1h"];
         }
+
+        rainfallFigure.textContent = `Rain\nYesterday\n${dailyRainTotal.toFixed(
+            2
+        )}mm`;
+        rainfallFigure.style.color = "#000";
     }
-    rainfallFigure.textContent = `Rain in\nPast 24h:\n${dailyRainTotal.toFixed(
-        2
-    )}mm`;
-    rainfallFigure.style.color = "#000";
 }
 
 updateWeatherWidgets();
