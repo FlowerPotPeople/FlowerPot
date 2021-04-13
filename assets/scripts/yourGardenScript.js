@@ -10,7 +10,7 @@ const plantsTable = document.querySelector(".users-plants-table");
 
 const harvestHelperApiKeyLH = "bd4b566cf0263ab6ba604004de134f41";
 
-const harvestHelperEndpointAllPlants = `http://harvesthelper.herokuapp.com/api/v1/plants?api_key=${harvestHelperApiKeyLH}`;
+const harvestHelperEndpointAllPlants = `https://harvesthelper.herokuapp.com/api/v1/plants?api_key=${harvestHelperApiKeyLH}`;
 
 function createPlantEntry() {
     let usersPlants = checkLocalStorage();
@@ -34,7 +34,7 @@ function addRowsToTable(usersPlants, apiPlant) {
         // for every plant in the users local storage
         usersPlants.forEach(function (plant) {
             if (plant.plantId) {
-                const urlWithPlantId = `http://harvesthelper.herokuapp.com/api/v1/plants/${
+                const urlWithPlantId = `https://harvesthelper.herokuapp.com/api/v1/plants/${
                     plant.plantId / 1
                 }:plant_id?api_key=${harvestHelperApiKeyLH}`;
                 // create rows and cells, fill their values
