@@ -122,21 +122,29 @@ a {
 .card-header {
     background-color: var(--contentCardHeader);
     width: 100%;
-    height: 20%;
+    min-height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 
-.card-header h2 {
-    padding: 20px;
+.favourites-header h2 {
+    margin: 0;
+    padding-top: 20px;
+}
+
+.favourites-header p {
+    font-size: 80%;
+    color: rgb(27 27 27 / 75%);
+    padding: 0 2%;
+    text-align: center
 }
 
 
 .your-garden, .favourites-card {
     width: 100%;
+    height: fit-content;
 }
 
 .plants {
@@ -148,14 +156,12 @@ a {
 }
 .fav-content {
     flex-shrink: 1;
+    text-align: center;
 }
 
-.fav-content h3 {
+.fav-content p {
     margin: .5em 0;
-}
-
-.fav-content img, .fav-content p {
-    margin-bottom: .5em;  
+    padding: 0 5%; 
 }
 
 .fav-content img {
@@ -172,7 +178,7 @@ a {
         align-items: center;
         justify-content: space-between;
     }
-    
+
     .brand {
         padding: 10px;
     }
@@ -193,6 +199,15 @@ a {
     
     .widget-container {
         margin: 10px 3px 1.5px auto;
+    }
+
+    .favourites-header h2 {
+        margin: 0 auto;
+        padding-top: 1em;        
+    }
+
+    .plants {
+        flex-wrap: nowrap;
     }
 }
 
