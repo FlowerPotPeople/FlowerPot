@@ -47,7 +47,7 @@ function addRowsToTable(usersPlants, apiPlant) {
 
 function setInputStartDate() {
     document.querySelector("#date-planted-input").value = moment().format(
-        "MM/DD/YYYY"
+        "yyyy-MM-DD"
     );
 }
 
