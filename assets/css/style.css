@@ -19,14 +19,19 @@
 body {
     font-family: "New Tegomin";
     font-weight: var(--bold);
+    background-color: beige;
+    margin: 0;
 }
 
 header {
-    /* padding: 10px 0 0; */
+    padding: 0 8%;
     background-color: var(--headerBackgroundGreen);
+    margin: 0;
+    text-align: center;
 }
+
 .brand {
-    padding: 10px;
+    padding: 2em 10px .5em;
     letter-spacing: 0.2rem;
     font-weight: var(--bolder);
     font-size: 18px;
@@ -41,6 +46,7 @@ header {
 .nav-list {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-evenly;
     padding: 0;
 }
@@ -49,7 +55,9 @@ header {
     list-style: none;
     color: black;
     letter-spacing: 0.19rem;
+    padding: 2% 0;
 }
+
 a {
     display: block;
     text-decoration: none;
@@ -57,11 +65,11 @@ a {
 }
 
 .widget-container {
-    margin: 10px 3px 1.5px auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1em;
 }
 .weather-icon {
     display: block;
@@ -79,6 +87,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 80px;
     padding: 3px;
     margin-left: 3px;
     background-color: var(--rainfallBlue);
@@ -88,8 +97,8 @@ a {
 /* main content */
 
 .container {
-    height: 100vh;
     background-color: beige;
+    height: 100%;
     padding: 3rem 8%;
     display: flex;
     flex-wrap: wrap;
@@ -118,7 +127,13 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
+
+.card-header h2 {
+    padding: 20px;
+}
+
 
 .your-garden, .favourites-card {
     width: 100%;
@@ -131,26 +146,35 @@ a {
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+.fav-content {
+    flex-shrink: 1;
+}
 
-.card-content h3 {
+.fav-content h3 {
     margin: .5em 0;
 }
 
-.card-content img, .card-content p {
+.fav-content img, .fav-content p {
     margin-bottom: .5em;  
+}
+
+.fav-content img {
+    flex-shrink: 1;
+    max-width: 30%;
 }
 
 @media screen and (min-width: 768px) {
     header {
-        padding: 5px 0 5px 0;
+        padding: 5px 8%;
+        /* padding: 5px 0 5px 0; */
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
     }
-    .nav-list {
-        flex-grow: 1;
-        /* width: 70%; */
+    
+    .brand {
+        padding: 10px;
     }
 
     .nav-bar {
@@ -159,8 +183,16 @@ a {
         flex-direction: row;
         justify-content: space-between;
     }
+
+    .nav-list {
+        flex-grow: 1;
+        flex-direction: row;
+        /* width: 70%; */
+    }
+
+    
     .widget-container {
-        margin: 0;
+        margin: 10px 3px 1.5px auto;
     }
 }
 
