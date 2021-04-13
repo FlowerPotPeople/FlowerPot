@@ -43,7 +43,7 @@ Icons:
 - [x] Do not use JS alerts, confirms or prompts (use modals instead)
 - [x] Use client-side storage to store persistent data
 - [x] Be responsive
-- [] Have a polished UI
+- [x] Have a polished UI
 - [x] Have a clean repository that meets quality coding standards
 - [x] Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application)
 
@@ -57,7 +57,7 @@ Use this [project presentation template](https://docs.google.com/presentation/d/
 
 - [x] Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
 
-- [] Demo: Show your stuff!
+- [x] Demo: Show your stuff!
 
 - [x] Directions for Future Development
 

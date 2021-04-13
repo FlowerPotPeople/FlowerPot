@@ -26,12 +26,10 @@ body {
 header {
     padding: 0 8%;
     background-color: var(--headerBackgroundGreen);
-    margin: 0;
-    text-align: center;
 }
 
 .brand {
-    padding: 2em 10px .5em;
+    padding: 10px;
     letter-spacing: 0.2rem;
     font-weight: var(--bolder);
     font-size: 18px;
@@ -44,9 +42,9 @@ header {
 }
 
 .nav-list {
+    font-size: 16px;
     display: flex;
     align-items: center;
-    flex-direction: column;
     justify-content: space-evenly;
     padding: 0;
 }
@@ -55,7 +53,6 @@ header {
     list-style: none;
     color: black;
     letter-spacing: 0.19rem;
-    padding: 2% 0;
 }
 
 a {
@@ -69,7 +66,7 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1em;
+    margin: 10px auto 3px;
 }
 .weather-icon {
     display: block;
