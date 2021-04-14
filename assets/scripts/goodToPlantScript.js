@@ -52,14 +52,14 @@ function callHarvestHelperApi() {
     .then((response) => response.json())
     .then(function (data) {
       const teamFavPlants = [];
-      console.log("fullset data: ", data);
+//       console.log("fullset data: ", data);
       for (const name in favPlantsList) {
         const plant = data.find((plant) => {
           return plant.name === favPlantsList[name].plants[0];
         });
         teamFavPlants.push({ name, plant });
       }
-      console.log("teamFavPlants: ", teamFavPlants);
+//       console.log("teamFavPlants: ", teamFavPlants);
       populateFavouritePlantCard(teamFavPlants);
     });
 }
